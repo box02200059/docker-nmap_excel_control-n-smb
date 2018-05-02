@@ -52,7 +52,7 @@ docker run -dit --net=host -v /path/to/share/:/shared --name scan_machine astroi
 ## HOW TO USE
 ```sh
 docker exec -it scan_machine sh
-cd /shared
+cd /config
 python nmap_excel_control.py
 ```
 After second step, remember to revise target.txt .
