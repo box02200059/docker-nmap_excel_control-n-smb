@@ -22,8 +22,8 @@ RUN set -xe \
 VOLUME /config /shared
 COPY *.conf /config/
 COPY nmap_excel_control.py /config/
-COPY nselib /usr/share/nmap
-COPY scripts /usr/share/nmap
+COPY nselib /usr/share/nmap/nselib
+COPY scripts /usr/share/nmap/scripts
 COPY nse_main.lua /usr/share/nmap
 
 RUN addgroup -g 1000 hmg \
