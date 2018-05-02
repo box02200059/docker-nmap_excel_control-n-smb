@@ -48,10 +48,10 @@ for target in target_list:
                 pass
     except:
         num -= 1
-    if num == 100:
+    if num == 50:
         num = 0
-        wb.save("//shared//%s.xlsx" % time.asctime(time.localtime(time.time())).replace(' ', '_').replace(':', '.')
+        wb.save("/shared/%s.xlsx" % time.asctime(time.localtime(time.time())).replace(' ', '_').replace(':', '.')
                 )
 if num > 0:
-    wb.save("//shared//%s.xlsx" % time.asctime(time.localtime(time.time())).replace(' ', '_').replace(':', '.')
+    wb.save("/shared/%s.xlsx" % time.asctime(time.localtime(time.time())).replace(' ', '_').replace(':', '.')
             )

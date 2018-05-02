@@ -20,7 +20,11 @@ RUN set -xe \
     && mkdir /config /shared
 
 VOLUME /config /shared
-COPY ./ /config/
+COPY *.conf /config/
+COPY nmap_excel_control.py /config/
+COPY nselib /usr/share/nmap
+COPY scripts /usr/share/nmap
+COPY nse_main.lua /usr/share/nmap
 
 RUN addgroup -g 1000 hmg \
     && adduser -D -H -G hmg -s /bin/false -u 1000 hmg \
