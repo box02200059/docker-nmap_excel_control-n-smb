@@ -3,7 +3,7 @@
 import nmap
 import time
 from openpyxl import Workbook
-f = open('target.txt', 'r')
+f = open('/shared/target.txt', 'r')
 target_list = []
 lines = f.readlines()
 for line in lines:
@@ -50,8 +50,8 @@ for target in target_list:
         num -= 1
     if num == 100:
         num = 0
-        wb.save("%s.xlsx" % time.asctime(time.localtime(time.time())).replace(' ', '_').replace(':', '.')
+        wb.save("//shared//%s.xlsx" % time.asctime(time.localtime(time.time())).replace(' ', '_').replace(':', '.')
                 )
 if num > 0:
-    wb.save("%s.xlsx" % time.asctime(time.localtime(time.time())).replace(' ', '_').replace(':', '.')
+    wb.save("//shared//%s.xlsx" % time.asctime(time.localtime(time.time())).replace(' ', '_').replace(':', '.')
             )

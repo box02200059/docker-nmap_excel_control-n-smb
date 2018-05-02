@@ -20,13 +20,11 @@ RUN set -xe \
     && mkdir /config /shared
 
 VOLUME /config /shared
-COPY *.conf /config/
-COPY *.py /shared/
+COPY ./ /config/
 
 RUN addgroup -g 1000 hmg \
     && adduser -D -H -G hmg -s /bin/false -u 1000 hmg \
-    && echo -e "1qaz@WSX3edc\n1qaz@WSX3edc" | smbpasswd -a -s -c /config/smb.conf hmg \
-    && touch /shared/target.txt
+    && echo -e "1qaz@WSX3edc\n1qaz@WSX3edc" | smbpasswd -a -s -c /config/smb.conf hmg
 
 
 

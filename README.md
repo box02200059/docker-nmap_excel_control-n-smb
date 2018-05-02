@@ -22,23 +22,20 @@ RUN set -xe \
     && pip install python-nmap \
     && pip install openpyxl \
     && rm -rf /var/cache/apk/* \
-    && mkdir /config /shared \
-    && touch /shared/target.txt
+    && mkdir /config /shared
 
-COPY *.conf /config/
-COPY *.py /shared/
+VOLUME /config /shared
+COPY ./ /config/
 
 RUN addgroup -g 1000 hmg \
     && adduser -D -H -G hmg -s /bin/false -u 1000 hmg \
     && echo -e "1qaz@WSX3edc\n1qaz@WSX3edc" | smbpasswd -a -s -c /config/smb.conf hmg
 
-VOLUME /config /shared
+
 
 EXPOSE 137/udp 138/udp 139 445
 
 ENTRYPOINT ["supervisord", "-c", "/config/supervisord.conf"]
-
-#Reference pwntr/samba-alpine
 
 ```
 
