@@ -17,7 +17,8 @@ RUN set -xe \
     && pip install python-nmap \
     && pip install openpyxl \
     && rm -rf /var/cache/apk/* \
-    && mkdir /config /shared
+    && mkdir /config /shared \
+    && chmod 777 /shared
 
 VOLUME /config /shared
 COPY *.conf /config/
