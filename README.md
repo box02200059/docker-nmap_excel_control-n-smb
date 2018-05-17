@@ -70,3 +70,5 @@ After second step, remember to revise target.txt .
 http://www.vixual.net/blog/archives/82
 
 https://www.cyberciti.biz/faq/how-to-enable-and-start-services-on-alpine-linux/
+
+https://www.cnblogs.com/darkpig/p/5691469.html
