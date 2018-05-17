@@ -36,13 +36,16 @@ for target in target_list:
         nm = nmap.PortScanner()
         nm.scan(target, '1-10000')
         for port in range(1, 10000):
-            s1 = nm[target]['tcp'][port]['product']
-            s2 = nm[target]['tcp'][port]['version']
-            s3 = nm[target]['tcp'][port]['name']
-            s4 = nm[target]['tcp'][port]['cpe']
-            s5 = nm[target]['tcp'][port]['extrainfo']
-            print(target, port, s1, s2, s3, s4, s5)
-            ws.append([target, port, s1, s2, s3, s4, s5])
+            try:
+                s1 = nm[target]['tcp'][port]['product']
+                s2 = nm[target]['tcp'][port]['version']
+                s3 = nm[target]['tcp'][port]['name']
+                s4 = nm[target]['tcp'][port]['cpe']
+                s5 = nm[target]['tcp'][port]['extrainfo']
+                print(target, port, s1, s2, s3, s4, s5)
+                ws.append([target, port, s1, s2, s3, s4, s5])
+            except:
+                pass
     except:
         num -= 1
     if num == 50:
