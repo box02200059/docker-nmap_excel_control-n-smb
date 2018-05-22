@@ -32,9 +32,12 @@ ws['G1'] = 'extrainfo'
 num = 0
 for target in target_list:
     num += 1
+    num2 = 0
+    print 'scanning %s' % target
     try:
         nm = nmap.PortScanner()
-        nm.scan(target, '1-10000')
+        nm.scan(target, '1-1000,1433,3306,3389,8080-8090','-sS -Av')
+        print nm.command_line()
         for port in range(1, 10000):
             try:
                 s1 = nm[target]['tcp'][port]['product']
@@ -44,14 +47,20 @@ for target in target_list:
                 s5 = nm[target]['tcp'][port]['extrainfo']
                 print target, port, s1, s2, s3, s4, s5
                 ws.append([target, port, s1, s2, s3, s4, s5])
+                num2 += 1
             except:
                 pass
+        if num2 == 0:
+            num -= 1
     except:
         num -= 1
+        print 'scanning %s error!' % target
     if num == 50:
         num = 0
         wb.save("/shared/%s.xlsx" % time.asctime(time.localtime(time.time())).replace(' ', '_').replace(':', '.')
                 )
+        print 'Save file.
 if num > 0:
     wb.save("/shared/%s.xlsx" % time.asctime(time.localtime(time.time())).replace(' ', '_').replace(':', '.')
             )
+    print 'Save last file.
