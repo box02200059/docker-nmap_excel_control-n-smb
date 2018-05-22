@@ -59,8 +59,8 @@ for target in target_list:
         num = 0
         wb.save("/shared/%s.xlsx" % time.asctime(time.localtime(time.time())).replace(' ', '_').replace(':', '.')
                 )
-        print 'Save file.
+        print 'Save file.'
 if num > 0:
     wb.save("/shared/%s.xlsx" % time.asctime(time.localtime(time.time())).replace(' ', '_').replace(':', '.')
             )
-    print 'Save last file.
+    print 'Save last file.'
