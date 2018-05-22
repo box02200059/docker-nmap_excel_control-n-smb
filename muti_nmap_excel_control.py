@@ -38,7 +38,6 @@ num = 0
 def py_scan(target):
     global num
     print 'num = %s' % num
-    num += 1
     num2 = 0
     print 'scanning %s' % target
     try:
@@ -57,10 +56,9 @@ def py_scan(target):
                 num2 += 1
             except:
                 pass
-        if num2 == 0:
-            num -= 1
+        if num2 != 0:
+            num += 1
     except:
-        num -= 1
         print 'scanning %s error!' % target
     if num == 50:
         num = 0
@@ -98,7 +96,6 @@ def process_data(threadName, q):
 threadList = []
 for i in range(0,16):
     threadList.append("Thread-%s" % i+1)
-target_list = []
 queueLock = threading.Lock()
 workQueue = Queue.Queue()
 threads = []
