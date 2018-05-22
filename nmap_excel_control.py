@@ -31,6 +31,7 @@ ws['G1'] = 'extrainfo'
 
 num = 0
 for target in target_list:
+    print 'num = %s' % num
     num += 1
     num2 = 0
     print 'scanning %s' % target
